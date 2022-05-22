@@ -1,0 +1,392 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RGR_Visual.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="1200"
+        x:Class="RGR_Visual.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="RGR_Visual"
+		Width="800"
+		Height="700">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+	<Grid RowDefinitions="*,Auto">
+		<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+			<TabControl Name="Tables">
+				<TabItem Header="Horse" FontSize="18" Background="Gray">
+					<DataGrid Name="Horses" Items="{Binding Horses}" CanUserResizeColumns="True">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="Nickname">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Nickname}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Nickname}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Age">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Age}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<NumericUpDown Value="{Binding Age}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Gender">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Gender}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Gender}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							
+							<DataGridTemplateColumn Header="FIO Trainer">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding FIOTrainer}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding FIOTrainer}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="FIO Owner">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding FIOOwner}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding FIOOwner}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
+				<TabItem Header="Jockey" FontSize="18" Background="Gray">
+					<DataGrid Name="Jockeys" Items="{Binding Jockeys}" CanUserResizeColumns="True">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="FIO">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding FIO}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding FIO}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Rank">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Rank}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Rank}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
+				<TabItem Header="Trainer" FontSize="18" Background="Gray">
+					<DataGrid Name="Trainers" Items="{Binding Trainers}" CanUserResizeColumns="True">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="FIO">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding FIO}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding FIO}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Rank">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Rank}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Rank}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
+				<TabItem Header="Owner" FontSize="18" Background="Gray">
+					<DataGrid Name="Owners" Items="{Binding Owners}" CanUserResizeColumns="True">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="FIO">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding FIO}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding FIO}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
+				<TabItem Header="Run" FontSize="18" Background="Gray">
+					<DataGrid Name="Runs" Items="{Binding Runs}" CanUserResizeColumns="True">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="Number">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Number}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Number}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Date">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Date}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<NumericUpDown Value="{Binding Date}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Distance">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Distance}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Distance}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Title Racetrack">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding TitleRacetrack}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding TitleRacetrack}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
+				<TabItem Header="Racetrack" FontSize="18" Background="Gray">
+					<DataGrid Name="Racetracks" Items="{Binding Racetracks}" CanUserResizeColumns="True">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="Title">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Title}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding Title}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
+				<TabItem Header="Results" FontSize="18" Background="Gray">
+					<DataGrid Name="Results" Items="{Binding Results}" CanUserResizeColumns="True">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="Nickname Horse">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding HorseNickname}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding HorseNickname}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="FIO Jockey">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding FIOJockey}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding FIOJockey}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Starting position">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding StartPosition}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<NumericUpDown Value="{Binding StartPosition}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Finishing position">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding FinishPosition}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding FinishPosition}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Lag">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding Lag}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<NumericUpDown Value="{Binding Lag}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Number Run">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding NumberRun}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<NumericUpDown Value="{Binding NumberRun}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Date Run">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding DateRun}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding DateRun}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTemplateColumn Header="Title Racetrack">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border BorderBrush="Black" BorderThickness="0.2">
+											<TextBlock Text="{Binding TitleRacetrack}" TextAlignment="Center"/>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<TextBox Text="{Binding TitleRacetrack}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
+			</TabControl>
+		</ScrollViewer>
+		<Grid Grid.Row="1" ColumnDefinitions="*,*,*,*">
+			<Button Content="Add a line" Command="{Binding AddRow}" CommandParameter="{Binding #Tables.SelectedIndex}" Grid.Column="0"/>
+			<Button Content="Request manager" Grid.Column="1"/>
+		</Grid>
+	</Grid>
+
+</Window>
