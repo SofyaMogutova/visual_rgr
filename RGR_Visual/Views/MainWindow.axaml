@@ -3,19 +3,20 @@
         xmlns:vm="using:RGR_Visual.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="1200"
+        mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="1400"
         x:Class="RGR_Visual.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="RGR_Visual"
-		Width="800"
+		Width="1300"
 		Height="700">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-	<Grid RowDefinitions="*,Auto">
-		<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-			<TabControl Name="Tables">
+	
+	<Grid RowDefinitions="*,Auto" >
+		<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" >
+			<TabControl Name="Tables" TabStripPlacement="Left">
 				<TabItem Header="Horse" FontSize="18" Background="Gray">
 					<DataGrid Name="Horses" Items="{Binding Horses}" CanUserResizeColumns="True">
 						<DataGrid.Columns>
@@ -385,7 +386,9 @@
 		</ScrollViewer>
 		<Grid Grid.Row="1" ColumnDefinitions="*,*,*,*">
 			<Button Content="Add a line" Command="{Binding AddRow}" CommandParameter="{Binding #Tables.SelectedIndex}" Grid.Column="0"/>
-			<Button Content="Request manager" Grid.Column="1"/>
+			<Button Content="Delete" Grid.Column="1" Name="DeleteBtn"/>
+			<Button Content="Save" Command="{Binding Save}" Grid.Column="2"/>
+			<Button Content="Request manager" Grid.Column="3"/>
 		</Grid>
 	</Grid>
 

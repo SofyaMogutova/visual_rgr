@@ -16,26 +16,27 @@ namespace RGR_Visual.ViewModels
             Db = new BDContext();
             Db.Horses.Load<Horse>();
             Horses = Db.Horses.Local.ToObservableCollection();
-            Db.Trainers.Load<Trainer>();
-            Trainers = Db.Trainers.Local.ToObservableCollection();
             Db.Jockeys.Load<Jockey>();
             Jockeys = Db.Jockeys.Local.ToObservableCollection();
+            Db.Trainers.Load<Trainer>();
+            Trainers = Db.Trainers.Local.ToObservableCollection();
+            Db.Owners.Load<Owner>();
+            Owners = Db.Owners.Local.ToObservableCollection();
             Db.Runs.Load<Run>();
             Runs = Db.Runs.Local.ToObservableCollection();
             Db.Racetracks.Load<Racetrack>();
             Racetracks = Db.Racetracks.Local.ToObservableCollection();
             Db.Results.Load<Result>();
             Results = Db.Results.Local.ToObservableCollection();
-            Db.Owners.Load<Owner>();
-            Owners = Db.Owners.Local.ToObservableCollection();
         }
         public ObservableCollection<Horse> Horses { get; }
-        public ObservableCollection<Trainer> Trainers { get; }
         public ObservableCollection<Jockey> Jockeys { get; }
+        public ObservableCollection<Trainer> Trainers { get; }
+        public ObservableCollection<Owner> Owners { get; }
         public ObservableCollection<Run> Runs { get; }
         public ObservableCollection<Racetrack> Racetracks { get; }
         public ObservableCollection<Result> Results { get; }
-        public ObservableCollection<Owner> Owners { get; }
+        
         public void Save()
         {
             Db.SaveChanges();
@@ -48,10 +49,10 @@ namespace RGR_Visual.ViewModels
                     Db.Horses.Add(new Horse());
                     break;
                 case 1:
-                    Db.Trainers.Add(new Trainer());
+                    Db.Jockeys.Add(new Jockey());
                     break;
                 case 2:
-                    Db.Jockeys.Add(new Jockey());
+                    Db.Trainers.Add(new Trainer());
                     break;
                 case 3:
                     Db.Owners.Add(new Owner());
@@ -60,10 +61,10 @@ namespace RGR_Visual.ViewModels
                     Db.Runs.Add(new Run());
                     break;
                 case 5:
-                    Db.Results.Add(new Result());
+                    Db.Racetracks.Add(new Racetrack());
                     break;
                 case 6:
-                    Db.Racetracks.Add(new Racetrack());
+                    Db.Results.Add(new Result());
                     break;
             }
         }

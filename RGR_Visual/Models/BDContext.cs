@@ -153,7 +153,6 @@ namespace RGR_Visual.Models
 
                 entity.ToTable("Trainer");
 
-
                 entity.Property(e => e.FIO).HasColumnType("STRING");
             });
 

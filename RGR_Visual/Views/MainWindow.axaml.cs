@@ -9,10 +9,10 @@ namespace RGR_Visual.Views
         public MainWindow()
         {
             InitializeComponent();
-            //this.FindControl<Button>("DeleteBtn").Click += delegate
-            //{
-            //    Delete();
-            //};
+            this.FindControl<Button>("DeleteBtn").Click += delegate
+            {
+                Delete();
+            };
         }
         public void Delete()
         {
