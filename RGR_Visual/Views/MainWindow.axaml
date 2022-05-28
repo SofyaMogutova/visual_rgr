@@ -3,21 +3,21 @@
         xmlns:vm="using:RGR_Visual.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="1400"
+        mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="500"
         x:Class="RGR_Visual.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="RGR_Visual"
-		Width="1300"
-		Height="700">
+		Width="900"
+		Height="500">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 	
-	<Grid RowDefinitions="*,Auto" >
+	<Grid RowDefinitions="*,Auto, 10" >
 		<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" >
 			<TabControl Name="Tables" TabStripPlacement="Left">
-				<TabItem Header="Horse" FontSize="18" Background="Gray">
+				<TabItem Header="Horse" FontSize="18" Background="Gray" Width="150">
 					<DataGrid Name="Horses" Items="{Binding Horses}" CanUserResizeColumns="True">
 						<DataGrid.Columns>
 							<DataGridTemplateColumn Header="Nickname">
@@ -385,10 +385,10 @@
 			</TabControl>
 		</ScrollViewer>
 		<Grid Grid.Row="1" ColumnDefinitions="*,*,*,*">
-			<Button Content="Add a line" Command="{Binding AddRow}" CommandParameter="{Binding #Tables.SelectedIndex}" Grid.Column="0"/>
-			<Button Content="Delete" Grid.Column="1" Name="DeleteBtn"/>
-			<Button Content="Save" Command="{Binding Save}" Grid.Column="2"/>
-			<Button Content="Request manager" Grid.Column="3"/>
+			<Button Content="Add a line" Command="{Binding AddRow}" CommandParameter="{Binding #Tables.SelectedIndex}" Grid.Column="0" HorizontalContentAlignment="Center" Width="200"/>
+			<Button Content="Delete" Grid.Column="1" Name="ButtonDelete" HorizontalContentAlignment="Center" Width="200"/>
+			<Button Content="Save" Command="{Binding Save}" Grid.Column="2" HorizontalContentAlignment="Center" Width="200"/>
+			<Button Content="Request manager" Grid.Column="3" HorizontalContentAlignment="Center" Width="200"/>
 		</Grid>
 	</Grid>
 

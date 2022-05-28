@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
+using ReactiveUI;
 using RGR_Visual.Models;
 
 namespace RGR_Visual.ViewModels
@@ -41,36 +42,35 @@ namespace RGR_Visual.ViewModels
         {
             Db.SaveChanges();
         }
+        
         public void AddRow(int index)
         {
-            switch (index)
-            {
-                case 0:
-                    Db.Horses.Add(new Horse());
-                    break;
-                case 1:
-                    Db.Jockeys.Add(new Jockey());
-                    break;
-                case 2:
-                    Db.Trainers.Add(new Trainer());
-                    break;
-                case 3:
-                    Db.Owners.Add(new Owner());
-                    break;
-                case 4:
-                    Db.Runs.Add(new Run());
-                    break;
-                case 5:
-                    Db.Racetracks.Add(new Racetrack());
-                    break;
-                case 6:
-                    Db.Results.Add(new Result());
-                    break;
-            }
+                switch (index)
+                {
+                    case 0:
+                        Db.Horses.Add(new Horse());
+                        break;
+                    case 1:
+                        Db.Jockeys.Add(new Jockey());
+                        break;
+                    case 2:
+                        Db.Trainers.Add(new Trainer());
+                        break;
+                    case 3:
+                        Db.Owners.Add(new Owner());
+                        break;
+                    case 4:
+                        Db.Runs.Add(new Run());
+                        break;
+                    case 5:
+                        Db.Racetracks.Add(new Racetrack());
+                        break;
+                    case 6:
+                        Db.Results.Add(new Result());
+                        break;
+                }
+             
         }
-        public void DeleteRow(int index)
-        {
-
-        }
+        
     }
 }

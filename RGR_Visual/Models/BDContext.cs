@@ -55,7 +55,8 @@ namespace RGR_Visual.Models
 
                 entity.HasOne(d => d.TrainerNavigation)
                     .WithMany(p => p.Horses)
-                    .HasForeignKey(d => d.FIOTrainer);
+                    .HasForeignKey(d => d.FIOTrainer)
+                    .OnDelete(DeleteBehavior.Cascade);
 
             });
 
@@ -91,7 +92,7 @@ namespace RGR_Visual.Models
 
             modelBuilder.Entity<Result>(entity =>
             {
-                entity.HasKey(e => new { e.DateRun, e.NumberRun, e.TitleRacetrack });
+                entity.HasKey(e => new { e.HorseNickname, e.DateRun, e.NumberRun, e.TitleRacetrack });
 
                 entity.ToTable("Result");
                 
@@ -114,16 +115,18 @@ namespace RGR_Visual.Models
 
                 entity.HasOne(d => d.HorseNavigation)
                     .WithMany()
-                    .HasForeignKey(d => d.HorseNickname);
+                    .HasForeignKey(d => d.HorseNickname)
+                    .OnDelete(DeleteBehavior.Cascade);
 
                 entity.HasOne(d => d.JockeyNavigation)
                     .WithMany()
-                    .HasForeignKey(d => d.FIOJockey);
+                    .HasForeignKey(d => d.FIOJockey)
+                    .OnDelete(DeleteBehavior.Cascade);
 
                 entity.HasOne(d => d.RunNavigation)
                     .WithMany()
-                    .HasForeignKey(d => new { d.DateRun, d.NumberRun, d.TitleRacetrack });
-
+                    .HasForeignKey(d => new { d.DateRun, d.NumberRun, d.TitleRacetrack })
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Run>(entity =>
@@ -144,7 +147,7 @@ namespace RGR_Visual.Models
                 entity.HasOne(d => d.RacetrackNavigation)
                     .WithMany(p => p.Runs)
                     .HasForeignKey(d => d.TitleRacetrack)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Trainer>(entity =>
