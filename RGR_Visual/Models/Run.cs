@@ -22,6 +22,23 @@ namespace RGR_Visual.Models
         public string TitleRacetrack { get; set; } = null!;
         
         public virtual Racetrack RacetrackNavigation { get; set; } = null!;
-
+        public static string[] GetAttr()
+        {
+            return new[] { "Run: Number", "Run: Date", "Run: Distance", "Run: TitleRacetrack" };
+        }
+        public object? this[string property]
+        {
+            get
+            {
+                switch (property)
+                {
+                    case "Number": return Number;
+                    case "Date": return Date;
+                    case "Distance": return Distance;
+                    case "TitleRacetrack": return TitleRacetrack;
+                }
+                return null;
+            }
+        }
     }
 }

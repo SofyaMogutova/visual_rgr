@@ -4,8 +4,8 @@ using System.Collections.ObjectModel;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
-using ReactiveUI;
 using RGR_Visual.Models;
+using ReactiveUI;
 
 namespace RGR_Visual.ViewModels
 {
@@ -14,6 +14,7 @@ namespace RGR_Visual.ViewModels
         public BDContext Db { get; }
         public MainWindowViewModel()
         {
+            
             Db = new BDContext();
             Db.Horses.Load<Horse>();
             Horses = Db.Horses.Local.ToObservableCollection();
@@ -29,7 +30,9 @@ namespace RGR_Visual.ViewModels
             Racetracks = Db.Racetracks.Local.ToObservableCollection();
             Db.Results.Load<Result>();
             Results = Db.Results.Local.ToObservableCollection();
+            Tabs = new ObservableCollection<Tab>();
         }
+        public ObservableCollection<Tab> Tabs { get; }
         public ObservableCollection<Horse> Horses { get; }
         public ObservableCollection<Jockey> Jockeys { get; }
         public ObservableCollection<Trainer> Trainers { get; }
@@ -37,7 +40,7 @@ namespace RGR_Visual.ViewModels
         public ObservableCollection<Run> Runs { get; }
         public ObservableCollection<Racetrack> Racetracks { get; }
         public ObservableCollection<Result> Results { get; }
-        
+        public List<List<object>> QueryList { get; set; }
         public void Save()
         {
             Db.SaveChanges();

@@ -34,6 +34,27 @@ namespace RGR_Visual.Models
         public virtual Jockey? JockeyNavigation { get; set; } = null!;
         public virtual Run? RunNavigation { get; set; } = null!;
 
-
+        public static string[] GetAttr()
+        {
+            return new[] { "Result: NicknameHorse", "Result: FIOJockey", "Result: StartPosition", "Result: FinishPosition", "Result: Lag", "Result: DateRun", "Result: NumberRun", "Result: TitleRacetrack" };
+        }
+        public object? this[string property]
+        {
+            get
+            {
+                switch (property)
+                {
+                    case "NicknameHorse": return HorseNickname;
+                    case "FIOJockey": return FIOJockey;
+                    case "StartPosition": return StartPosition;
+                    case "FinishPosition": return FinishPosition;
+                    case "Lag": return Lag;
+                    case "DateRun": return DateRun;
+                    case "NumberRun": return NumberRun;
+                    case "TitleRacetrack": return TitleRacetrack;
+                }
+                return null;
+            }
+        }
     }
 }

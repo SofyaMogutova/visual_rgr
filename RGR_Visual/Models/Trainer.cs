@@ -18,5 +18,22 @@ namespace RGR_Visual.Models
         public string Rank { get; set; } = null!;
 
         public virtual ICollection<Horse> Horses { get; set; }
+        public static string[] GetAttr()
+        {
+            return new[] { "Trainer: FIO", "Trainer: Rank" };
+        }
+        public object? this[string property]
+        {
+            get
+            {
+                switch (property)
+                {
+                    case "FIO": return FIO;
+                    case "Rank": return Rank;
+                }
+                return null;
+            }
+        }
     }
 }
+
